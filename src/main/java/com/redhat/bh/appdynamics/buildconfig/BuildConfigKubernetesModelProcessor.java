@@ -14,14 +14,14 @@ public class BuildConfigKubernetesModelProcessor {
     public void on(TemplateBuilder builder) {
         builder.addNewBuildConfigObject()
                 .withNewMetadata()
-                    .withName("fis-java-appdynamics")
+                    .withName("fis-appd")
                     .withLabels(getLabels())
                 .endMetadata()
                 .withNewSpec()
                     .withTriggers(getTriggers())
                     .withNewSource()
                         .withNewGit()
-                            .withUri("https://github.com/benemon/fis-java-appdynamics")
+                            .withUri("https://github.com/neechuan/fis-appd")
                         .endGit()
                         .withContextDir("src/main/docker")
                         .withType("Git")
@@ -39,7 +39,7 @@ public class BuildConfigKubernetesModelProcessor {
                     .withNewOutput()
                         .withNewTo()
                             .withKind("ImageStreamTag")
-                            .withName("fis-java-appdynamics:latest")
+                            .withName("fis-appd:latest")
                         .endTo()
                     .endOutput()
                 .endSpec()
@@ -65,8 +65,8 @@ public class BuildConfigKubernetesModelProcessor {
 
     private Map<String, String> getLabels() {
         Map<String, String> labels = new HashMap<>();
-        labels.put("app", "fis-java-appdynamics");
-        labels.put("project", "fis-java-appdynamics");
+        labels.put("app", "fis-appd");
+        labels.put("project", "fis-appd");
         labels.put("version", "1.0.0-SNAPSHOT");
         labels.put("group", "openshift");
 

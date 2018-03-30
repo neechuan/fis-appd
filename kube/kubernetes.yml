@@ -4,22 +4,22 @@ kind: "Template"
 labels: {}
 metadata:
   annotations:
-    description: "# fis-java-appdynamics\nbase build for any FIS application requiring\
+    description: "# fis-appd\nbase build for any FIS application requiring\
       \ appdynamics agents\n"
-    fabric8.fis-java-appdynamics/iconUrl: "img/icons/java.svg"
+    fabric8.fis-appd/iconUrl: "img/icons/java.svg"
   labels: {}
-  name: "fis-java-appdynamics"
+  name: "fis-appd"
 objects:
 - apiVersion: "v1"
   kind: "ImageStream"
   metadata:
     annotations: {}
     labels:
-      app: "fis-java-appdynamics"
-      project: "fis-java-appdynamics"
+      app: "fis-appd"
+      project: "fis-appd"
       version: "1.0.0-SNAPSHOT"
       group: "openshift"
-    name: "fis-java-appdynamics"
+    name: "fis-appd"
   spec:
     dockerImageRepository: ""
     tags: []
@@ -28,20 +28,20 @@ objects:
   metadata:
     annotations: {}
     labels:
-      app: "fis-java-appdynamics"
-      project: "fis-java-appdynamics"
+      app: "fis-appd"
+      project: "fis-appd"
       version: "1.0.0-SNAPSHOT"
       group: "openshift"
-    name: "fis-java-appdynamics"
+    name: "fis-appd"
   spec:
     output:
       to:
         kind: "ImageStreamTag"
-        name: "fis-java-appdynamics:latest"
+        name: "fis-appd:latest"
     source:
       contextDir: "src/main/docker"
       git:
-        uri: "https://github.com/benemon/fis-java-appdynamics"
+        uri: "https://github.com/neechuan/fis-appd"
       images: []
       secrets: []
       type: "Git"

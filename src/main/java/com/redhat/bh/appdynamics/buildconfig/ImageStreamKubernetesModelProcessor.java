@@ -10,7 +10,7 @@ public class ImageStreamKubernetesModelProcessor {
     public void on(TemplateBuilder builder) {
         builder.addNewImageStreamObject()
                 .withNewMetadata()
-                    .withName("fis-java-appdynamics")
+                    .withName("fis-appd")
                     .withLabels(getLabels())
                 .endMetadata()
                 .withNewSpec()
@@ -22,8 +22,8 @@ public class ImageStreamKubernetesModelProcessor {
 
     private Map<String, String> getLabels() {
         Map<String, String> labels = new HashMap<>();
-        labels.put("app", "fis-java-appdynamics");
-        labels.put("project", "fis-java-appdynamics");
+        labels.put("app", "fis-appd");
+        labels.put("project", "fis-appd");
         labels.put("version", "1.0.0-SNAPSHOT");
         labels.put("group", "openshift");
         
